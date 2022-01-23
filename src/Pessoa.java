@@ -1,10 +1,10 @@
-public class Person {
+public class Pessoa {
 
     private String nome;
     private String cpf;
     private String dataNascimento;
 
-    public Person(String nome, String cpf, String dataNascimento) {
+    public Pessoa(String nome, String cpf, String dataNascimento) {
         if (!nome.equals("")) {
             this.nome = nome;
         }
