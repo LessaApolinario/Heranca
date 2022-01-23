@@ -77,9 +77,9 @@ public class Casa {
     @Override
     public String toString() {
         if (this.temJardim) {
-            return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Preço: " + this.preco + "\n" + "Possui jardim!";
+            return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Preço: " + this.preco + "\n" + "Possui jardim!" + "\n--------------------\n";
         }
 
-        return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Preço: " + this.preco + "\n" + "Não possui jardim!";
+        return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Preço: " + this.preco + "\n" + "Não possui jardim!" + "\n--------------------\n";
     }
 }
