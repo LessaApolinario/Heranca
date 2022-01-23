@@ -3,9 +3,10 @@ public class Casa {
     private int janelas;
     private int portas;
     private int quartos;
+    private double preco;
     private boolean temJardim;
 
-    public Casa(int janelas, int portas, int quartos, boolean temJardim) {
+    public Casa(int janelas, int portas, int quartos, double preco, boolean temJardim) {
         if (janelas >= 0) {
             this.janelas = janelas;
         }
@@ -16,6 +17,10 @@ public class Casa {
 
         if (quartos > 0) {
             this.quartos = quartos;
+        }
+
+        if (preco > 0) {
+            this.preco = preco;
         }
 
         this.temJardim = temJardim;
@@ -51,6 +56,16 @@ public class Casa {
         }
     }
 
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        if (preco > 0) {
+            this.preco = preco;
+        }
+    }
+
     public boolean getTemJardim() {
         return temJardim;
     }
@@ -62,9 +77,9 @@ public class Casa {
     @Override
     public String toString() {
         if (this.temJardim) {
-            return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Possui jardim!";
+            return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Preço: " + this.preco + "\n" + "Possui jardim!";
         }
 
-        return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Não possui jardim!";
+        return "\n--------------------\n" + "Informações da casa:\n" + "Janelas: " + this.janelas + "\n" + "Portas: " + this.portas + "\n" + "Quartos: " + this.quartos + "\n" + "Preço: " + this.preco + "\n" + "Não possui jardim!";
     }
 }
