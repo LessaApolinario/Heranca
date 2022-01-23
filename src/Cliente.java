@@ -14,4 +14,14 @@ public class Cliente extends Pessoa {
             this.saldo = saldo;
         }
     }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        if (saldo >= 0) {
+            this.saldo = saldo;
+        }
+    }
 }
