@@ -2,19 +2,11 @@ import java.util.ArrayList;
 
 public class VendedorDeImoveis extends Pessoa {
 
-    private ArrayList<Casa> casas;
-
-    public VendedorDeImoveis(String nome, String cpf, String dataNascimento, ArrayList<Casa> casas) {
+    public VendedorDeImoveis(String nome, String cpf, String dataNascimento) {
         super(nome, cpf, dataNascimento);
-        this.casas = new ArrayList<>();
     }
 
-    // Retorna as casas cadastradas para venda
-    public ArrayList<Casa> getCasas() {
-        return casas;
-    }
-
-    public void venderCasa(Casa casa, Cliente cliente) {
+    public void venderCasa(Casa casa, Cliente cliente, ArrayList<Casa> casas) {
         double saldoCliente = cliente.getSaldo();
         double precoCasa = casa.getPreco();
 
