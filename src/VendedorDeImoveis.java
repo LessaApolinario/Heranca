@@ -43,6 +43,12 @@ public class VendedorDeImoveis extends Pessoa {
         System.out.println("Casa cadastrada com sucesso!");
     }
 
+    public void listarCasas() {
+        for (Casa c : casas) {
+            System.out.println(c.toString());
+        }
+    }
+
     @Override
     public String getCpf() {
         return "\n--------------------\n" + "Informações do vendedor de imóveis: " + "\n" + "Nome: " + super.getNome() + "\n" + "cpf: " + super.getCpf() + "\n" + "Data de nascimento: " + super.getDataNascimento() + "\n--------------------\n";
