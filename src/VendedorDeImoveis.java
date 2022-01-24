@@ -2,11 +2,14 @@ import java.util.ArrayList;
 
 public class VendedorDeImoveis extends Pessoa {
 
+    private ArrayList<Casa> casas;
+
     public VendedorDeImoveis(String nome, String cpf, String dataNascimento) {
         super(nome, cpf, dataNascimento);
+        this.casas = new ArrayList<>();
     }
 
-    public void venderCasa(Casa casa, Cliente cliente, ArrayList<Casa> casas) {
+    public void venderCasa(Casa casa, Cliente cliente) {
         double saldoCliente = cliente.getSaldo();
         double precoCasa = casa.getPreco();
 
