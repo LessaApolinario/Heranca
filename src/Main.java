@@ -2,10 +2,37 @@ import java.util.Scanner;
 
 public class Main {
 
+    // Usado para cadastro de clientes e vendedores de imóveis
     static GerenciadorDePessoas gerenciadorDePessoas = new GerenciadorDePessoas();
 
     public static void main(String[] args) {
 
+    }
+
+    public static void abrirDialogoCadastrarCasa(String cpf) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Quantas janelas a casa possui? ");
+        int janelas = in.nextInt();
+
+        System.out.println("Quantas portas a casa possui? ");
+        int portas = in.nextInt();
+
+        System.out.println("Quantos quartos a casa possui? ");
+        int quartos = in.nextInt();
+
+        System.out.println("Qual é o preço da casa? ");
+        double preco = in.nextDouble();
+
+        System.out.println("A casa possui jardim? ");
+        String reposta = in.nextLine();
+
+        // Verifica se a casa tem jardim
+        boolean temJardim = reposta.toUpperCase().equals("SIM");
+
+        // Buscando o vendedor de imóveis para cadastrar a casa
+        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpf);
+        vendedorProcurado.cadastrarCasa(janelas, portas, quartos, preco, temJardim);
     }
 
     public static void abrirDialogoCadastrarVendedorDeImoveis() {
@@ -56,6 +83,12 @@ public class Main {
 
         System.out.println(clienteEncontrado.toString());
     }
+
+    /// TODO: obterInformacoesVendedorDeImóveis
+
+    /// TODO: venderCasa
+
+    /// TODO: listarCasas
 
     public static void menu() {
         System.out.println("1. Cadastrar cliente");
