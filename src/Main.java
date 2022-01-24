@@ -90,7 +90,7 @@ public class Main {
         System.out.println(vendedorDeImoveis.toString());
     }
 
-    public static void abrirDialogoVenderCasa(String cpfCliente) {
+    public static void abrirDialogoVenderCasa() {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Qual é o cpf do vendedor procurado? ");
@@ -105,6 +105,9 @@ public class Main {
 
         boolean resposta = temJardim.equals("SIM");
         Casa casaProcurada = vendedorProcurado.buscarCasa(preco, resposta);
+
+        System.out.println("Qual é o cpf do cliente procurado? ");
+        String cpfCliente = in.nextLine();
 
         Cliente clienteProcurado = gerenciadorDePessoas.buscarCliente(cpfCliente);
         vendedorProcurado.venderCasa(casaProcurada, clienteProcurado);
