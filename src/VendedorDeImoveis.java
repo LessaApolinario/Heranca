@@ -18,7 +18,7 @@ public class VendedorDeImoveis extends Pessoa {
             casas.remove(casa);
 
             saldoCliente -= precoCasa;
-            System.out.println("Saldo atual: " + cliente.getSaldo());
+            System.out.println("Saldo atual: " + saldoCliente);
         }
     }
 
@@ -27,5 +27,10 @@ public class VendedorDeImoveis extends Pessoa {
 
         casas.add(casa);
         System.out.println("Casa cadastrada com sucesso!");
+    }
+
+    @Override
+    public String getCpf() {
+        return "\n--------------------\n" + "Informações do vendedor de imóveis: " + "\n" + "Nome: " + super.getNome() + "\n" + "cpf: " + super.getCpf() + "\n" + "Data de nascimento: " + super.getDataNascimento() + "\n--------------------\n";
     }
 }
