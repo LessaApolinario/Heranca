@@ -21,4 +21,11 @@ public class VendedorDeImoveis extends Pessoa {
             System.out.println("Saldo atual: " + cliente.getSaldo());
         }
     }
+
+    public void cadastrarCasa(int janelas, int portas, int quartos, double preco, boolean temJardim) {
+        Casa casa = new Casa(janelas, portas, quartos, preco, temJardim);
+
+        casas.add(casa);
+        System.out.println("Casa cadastrada com sucesso!");
+    }
 }
