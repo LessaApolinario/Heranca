@@ -22,6 +22,16 @@ public class VendedorDeImoveis extends Pessoa {
         }
     }
 
+    public Casa buscarCasa(double preco, String temJardim) {
+        for (Casa c : casas) {
+            if (preco == c.getPreco() && temJardim.equals("SIM")) {
+                return c;
+            }
+        }
+
+        return null;
+    }
+
     public void cadastrarCasa(int janelas, int portas, int quartos, double preco, boolean temJardim) {
         Casa casa = new Casa(janelas, portas, quartos, preco, temJardim);
 
