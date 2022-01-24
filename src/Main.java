@@ -84,7 +84,7 @@ public class Main {
         System.out.println(clienteEncontrado.toString());
     }
 
-    public static void obterInformacoesVendedorDeImóveis(String cpf) {
+    public static void obterInformacoesVendedorDeImoveis(String cpf) {
         VendedorDeImoveis vendedorDeImoveis = gerenciadorDePessoas.buscarVendedorDeImoveis(cpf);
 
         System.out.println(vendedorDeImoveis.toString());
