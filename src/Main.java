@@ -6,10 +6,44 @@ public class Main {
     static GerenciadorDePessoas gerenciadorDePessoas = new GerenciadorDePessoas();
 
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
+        int op;
+
+        do {
+            menu();
+            System.out.println("Escolha uma opção: ");
+            op = in.nextInt();
+            limparBuffer(in);
+
+            switch (op) {
+                case 1:
+                    abrirDialogoCadastrarCliente();
+                    break;
+                case 2:
+                    abrirDialogoCadastrarVendedorDeImoveis();
+                    break;
+                case 3:
+                    abrirDialogoCadastrarCasa();
+                    break;
+                case 4:
+                    obterInformacoesCliente();
+                    break;
+                case 5:
+                    obterInformacoesVendedorDeImoveis();
+                    break;
+                case 6:
+                    abrirDialogoVenderCasa();
+                    break;
+                case 7:
+                    abrirDialogoListarCasas();
+                    break;
+            }
+
+        } while (op != 0);
     }
 
-    public static void abrirDialogoCadastrarCasa(String cpf) {
+    public static void abrirDialogoCadastrarCasa() {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Quantas janelas a casa possui? ");
@@ -31,7 +65,10 @@ public class Main {
         boolean temJardim = reposta.toUpperCase().equals("SIM");
 
         // Buscando o vendedor de imóveis para cadastrar a casa
-        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpf);
+        System.out.println("Qual é o cpf do vendedor procurado? ");
+        String cpfVendedor = in.nextLine();
+
+        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
         vendedorProcurado.cadastrarCasa(janelas, portas, quartos, preco, temJardim);
     }
 
@@ -73,7 +110,7 @@ public class Main {
         System.out.println("Cliente cadastrado com sucesso!");
     }
 
-    public void obterInformacoesCliente() {
+    public static void obterInformacoesCliente() {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Qual é o cpf do cliente procurado? ");
@@ -84,7 +121,12 @@ public class Main {
         System.out.println(clienteEncontrado.toString());
     }
 
-    public static void obterInformacoesVendedorDeImoveis(String cpf) {
+    public static void obterInformacoesVendedorDeImoveis() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Qual é o cpf do vendedor procurado? ");
+        String cpf = in.nextLine();
+
         VendedorDeImoveis vendedorDeImoveis = gerenciadorDePessoas.buscarVendedorDeImoveis(cpf);
 
         System.out.println(vendedorDeImoveis.toString());
