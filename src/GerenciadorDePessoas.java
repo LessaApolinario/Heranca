@@ -38,11 +38,13 @@ public class GerenciadorDePessoas {
         Cliente c = new Cliente(nome, cpf, dataNascimento, saldo);
 
         clientes.add(c);
+        System.out.println("Cliente cadastraddo com sucesso!");
     }
 
     public void cadastrarVendedorDeImoveis(String nome, String cpf, String dataNascimento) {
         VendedorDeImoveis vendedorDeImoveis = new VendedorDeImoveis(nome, cpf, dataNascimento);
 
         vendedores.add(vendedorDeImoveis);
+        System.out.println("Vendedor de imóveis cadastraddo com sucesso!");
     }
 }
