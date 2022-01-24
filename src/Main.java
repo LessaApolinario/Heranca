@@ -106,8 +106,6 @@ public class Main {
         double saldo = in.nextDouble();
 
         gerenciadorDePessoas.cadastrarCliente(nome, cpf, dataNascimento, saldo);
-
-        System.out.println("Cliente cadastrado com sucesso!");
     }
 
     public static void obterInformacoesCliente() {
