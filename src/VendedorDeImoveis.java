@@ -22,9 +22,11 @@ public class VendedorDeImoveis extends Pessoa {
         }
     }
 
-    public Casa buscarCasa(double preco, String temJardim) {
+    public Casa buscarCasa(double preco, boolean temJardim) {
         for (Casa c : casas) {
-            if (preco == c.getPreco() && temJardim.equals("SIM")) {
+            boolean temJardimCasa = c.getTemJardim();
+
+            if (preco == c.getPreco() && temJardim == temJardimCasa) {
                 return c;
             }
         }
