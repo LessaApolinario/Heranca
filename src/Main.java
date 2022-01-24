@@ -86,8 +86,6 @@ public class Main {
 
 
         gerenciadorDePessoas.cadastrarVendedorDeImoveis(nome, cpf, dataNascimento);
-
-        System.out.println("Vendedor de imóveis cadastrado com sucesso!");
     }
 
     public static void abrirDialogoCadastrarCliente() {

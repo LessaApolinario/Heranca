@@ -45,6 +45,6 @@ public class GerenciadorDePessoas {
         VendedorDeImoveis vendedorDeImoveis = new VendedorDeImoveis(nome, cpf, dataNascimento);
 
         vendedores.add(vendedorDeImoveis);
-        System.out.println("Vendedor de imóveis cadastraddo com sucesso!");
+        System.out.println("Vendedor de imóveis cadastrado com sucesso!");
     }
 }
