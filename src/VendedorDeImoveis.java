@@ -15,6 +15,8 @@ public class VendedorDeImoveis extends Pessoa {
 
         if (saldoCliente >= precoCasa) {
             System.out.println("A casa " + casa.toString() + " foi vendida com sucesso");
+            System.out.println("Vendedor: " + getNome());
+            System.out.println("Comprador: " + cliente.getNome());
             casas.remove(casa);
 
             saldoCliente -= precoCasa;
