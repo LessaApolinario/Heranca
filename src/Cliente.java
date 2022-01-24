@@ -24,4 +24,9 @@ public class Cliente extends Pessoa {
             this.saldo = saldo;
         }
     }
+
+    @Override
+    public String toString() {
+        return "\n--------------------\n" + "Informações do cliente:" + "\n" + "Nome: " + getNome() + "\n" + "cpf: " + getCpf() + "\n" + "Data de nascimento: " + getDataNascimento() + "\n" + "Saldo: " + getSaldo() + "\n--------------------\n";
+    }
 }
