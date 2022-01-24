@@ -46,6 +46,17 @@ public class Main {
         System.out.println("Cliente cadastrado com sucesso!");
     }
 
+    public void obterInformacoesCliente() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Qual é o cpf do cliente procurado? ");
+        String cpf = in.nextLine();
+
+        Cliente clienteEncontrado = gerenciadorDePessoas.buscarCliente(cpf);
+
+        System.out.println(clienteEncontrado.toString());
+    }
+
     public static void menu() {
         System.out.println("1. Cadastrar cliente");
         System.out.println("2. Cadastrar vendedor de imóveis");
