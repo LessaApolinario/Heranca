@@ -90,7 +90,25 @@ public class Main {
         System.out.println(vendedorDeImoveis.toString());
     }
 
-    /// TODO: venderCasa
+    public static void abrirDialogoVenderCasa(String cpfCliente) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Qual é o cpf do vendedor procurado? ");
+        String cpfVendedor = in.nextLine();
+        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
+
+        System.out.println("Qual é o preço da casa? ");
+        double preco = in.nextDouble();
+
+        System.out.println("A casa tem desejada precisa ter jardim? ");
+        String temJardim = in.nextLine();
+
+        boolean resposta = temJardim.equals("SIM");
+        Casa casaProcurada = vendedorProcurado.buscarCasa(preco, resposta);
+
+        Cliente clienteProcurado = gerenciadorDePessoas.buscarCliente(cpfCliente);
+        vendedorProcurado.venderCasa(casaProcurada, clienteProcurado);
+    }
 
     /// TODO: listarCasas
 
