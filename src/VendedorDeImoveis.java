@@ -2,11 +2,10 @@ import java.util.ArrayList;
 
 public class VendedorDeImoveis extends Pessoa {
 
-    private ArrayList<Casa> casas;
+    private ArrayList<Casa> casas = new ArrayList<>();
 
     public VendedorDeImoveis(String nome, String cpf, String dataNascimento) {
         super(nome, cpf, dataNascimento);
-        this.casas = new ArrayList<>();
     }
 
     public void venderCasa(Casa casa, Cliente cliente) {
@@ -50,7 +49,7 @@ public class VendedorDeImoveis extends Pessoa {
     }
 
     @Override
-    public String getCpf() {
+    public String toString() {
         return "\n--------------------\n" + "Informações do vendedor de imóveis: " + "\n" + "Nome: " + super.getNome() + "\n" + "cpf: " + super.getCpf() + "\n" + "Data de nascimento: " + super.getDataNascimento() + "\n--------------------\n";
     }
 }

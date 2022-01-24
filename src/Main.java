@@ -84,7 +84,6 @@ public class Main {
         System.out.println("Qual é a data de nascimento do vendedor? ");
         String dataNascimento = in.nextLine();
 
-
         gerenciadorDePessoas.cadastrarVendedorDeImoveis(nome, cpf, dataNascimento);
     }
 
