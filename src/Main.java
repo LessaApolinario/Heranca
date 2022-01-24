@@ -8,6 +8,24 @@ public class Main {
 
     }
 
+    public static void abrirDialogoCadastrarVendedorDeImoveis() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Qual é o nome do vendedor? ");
+        String nome = in.nextLine();
+
+        System.out.println("Qual é o cpf do vendedor? ");
+        String cpf = in.nextLine();
+
+        System.out.println("Qual é a data de nascimento do vendedor? ");
+        String dataNascimento = in.nextLine();
+
+
+        gerenciadorDePessoas.cadastrarVendedorDeImoveis(nome, cpf, dataNascimento);
+
+        System.out.println("Vendedor de imóveis cadastrado com sucesso!");
+    }
+
     public static void abrirDialogoCadastrarCliente() {
         Scanner in = new Scanner(System.in);
 
