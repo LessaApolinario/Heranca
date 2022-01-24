@@ -14,12 +14,11 @@ public class VendedorDeImoveis extends Pessoa {
         double precoCasa = casa.getPreco();
 
         if (saldoCliente >= precoCasa) {
+            System.out.println("A casa " + casa.toString() + " foi vendida com sucesso");
             casas.remove(casa);
 
             saldoCliente -= precoCasa;
             System.out.println("Saldo atual: " + cliente.getSaldo());
-
-            System.out.println("A casa " + casa.toString() + " foi vendida com sucesso");
         }
     }
 }
