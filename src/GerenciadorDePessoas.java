@@ -10,19 +10,39 @@ public class GerenciadorDePessoas {
         this.vendedores = new ArrayList<>();
     }
 
-    public Cliente cadastrarCliente(String nome, String cpf, String dataNascimento, double saldo) {
+    public Cliente buscarCliente(String cpf) {
+        for (Cliente c : clientes) {
+            String cpfCliente = c.getCpf();
+
+            if (cpf.equals(cpfCliente)) {
+                return c;
+            }
+        }
+
+        return null;
+    }
+
+    public VendedorDeImoveis buscarVendedorDeImoveis(String cpf) {
+        for (VendedorDeImoveis v : vendedores) {
+            String cpfVendedor = v.getCpf();
+
+            if (cpf.equals(cpfVendedor)) {
+                return v;
+            }
+        }
+
+        return null;
+    }
+
+    public void cadastrarCliente(String nome, String cpf, String dataNascimento, double saldo) {
         Cliente c = new Cliente(nome, cpf, dataNascimento, saldo);
 
         clientes.add(c);
-
-        return c;
     }
 
-    public VendedorDeImoveis cadastrarVendedorDeImoveis(String nome, String cpf, String dataNascimento) {
+    public void cadastrarVendedorDeImoveis(String nome, String cpf, String dataNascimento) {
         VendedorDeImoveis vendedorDeImoveis = new VendedorDeImoveis(nome, cpf, dataNascimento);
 
         vendedores.add(vendedorDeImoveis);
-
-        return vendedorDeImoveis;
     }
 }
