@@ -113,7 +113,16 @@ public class Main {
         vendedorProcurado.venderCasa(casaProcurada, clienteProcurado);
     }
 
-    /// TODO: listarCasas
+    // Este método lista casas de acordo com o vendedor
+    public static void abrirDialogoListarCasas() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Qual é o cpf do vendedor de imóveis? ");
+        String cpfVendedor = in.nextLine();
+
+        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
+        vendedorProcurado.listarCasas();
+    }
 
     public static void menu() {
         System.out.println("1. Cadastrar cliente");
