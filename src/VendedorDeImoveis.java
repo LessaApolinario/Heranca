@@ -22,18 +22,6 @@ public class VendedorDeImoveis extends Pessoa {
         }
     }
 
-    public Casa buscarCasa(double preco, boolean temJardim, ArrayList<Casa> casas) {
-        for (Casa c : casas) {
-            boolean temJardimCasa = c.getTemJardim();
-
-            if (preco == c.getPreco() && temJardim == temJardimCasa) {
-                return c;
-            }
-        }
-
-        return null;
-    }
-
     @Override
     public String toString() {
         return "\n--------------------\n" + "Informações do vendedor de imóveis: " + "\n" + "Nome: " + super.getNome() + "\n" + "cpf: " + super.getCpf() + "\n" + "Data de nascimento: " + super.getDataNascimento() + "\n--------------------\n";
