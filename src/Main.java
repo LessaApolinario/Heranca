@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     // Usado para cadastro de clientes e vendedores de imóveis
     static GerenciadorDePessoas gerenciadorDePessoas = new GerenciadorDePessoas();
+    // Usado para cadastro de casas
+    static GerenciadorDeCasas gerenciadorDeCasas = new GerenciadorDeCasas();
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -36,7 +39,7 @@ public class Main {
                     abrirDialogoVenderCasa();
                     break;
                 case 7:
-                    abrirDialogoListarCasas();
+                    listarCasas(gerenciadorDeCasas.getCasas());
                     break;
             }
 
@@ -62,14 +65,9 @@ public class Main {
         String reposta = in.nextLine();
 
         // Verifica se a casa tem jardim
-        boolean temJardim = reposta.toUpperCase().equals("SIM");
+        boolean temJardim = reposta.equalsIgnoreCase("SIM");
 
-        // Buscando o vendedor de imóveis para cadastrar a casa
-        System.out.println("Qual é o cpf do vendedor procurado? ");
-        String cpfVendedor = in.nextLine();
-
-        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
-        vendedorProcurado.cadastrarCasa(janelas, portas, quartos, preco, temJardim);
+        gerenciadorDeCasas.cadastrarCasa(janelas, portas, quartos, preco, temJardim);
     }
 
     public static void abrirDialogoCadastrarVendedorDeImoveis() {
@@ -141,24 +139,25 @@ public class Main {
         String temJardim = in.nextLine();
 
         boolean resposta = temJardim.equals("SIM");
-        Casa casaProcurada = vendedorProcurado.buscarCasa(preco, resposta);
+        Casa casaProcurada = vendedorProcurado.buscarCasa(preco, resposta, gerenciadorDeCasas.getCasas());
 
         System.out.println("Qual é o cpf do cliente procurado? ");
         String cpfCliente = in.nextLine();
 
         Cliente clienteProcurado = gerenciadorDePessoas.buscarCliente(cpfCliente);
-        vendedorProcurado.venderCasa(casaProcurada, clienteProcurado);
+        /**
+         * O gerenciador de casas informa quais as casas disponíveis,
+         * já o vendedor de imóveis apenas as vende!
+        */
+        vendedorProcurado.venderCasa(casaProcurada, clienteProcurado, gerenciadorDeCasas.getCasas());
     }
 
-    // Este método lista casas de acordo com o vendedor
-    public static void abrirDialogoListarCasas() {
-        Scanner in = new Scanner(System.in);
+    public static void listarCasas(ArrayList<Casa> casas) {
+        System.out.println("Lista de casas disponíveis: ");
 
-        System.out.println("Qual é o cpf do vendedor de imóveis? ");
-        String cpfVendedor = in.nextLine();
-
-        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
-        vendedorProcurado.listarCasas();
+        for (Casa c : casas) {
+            System.out.println(c.toString());
+        }
     }
 
     public static void menu() {
