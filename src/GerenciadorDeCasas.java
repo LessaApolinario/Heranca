@@ -18,4 +18,16 @@ public class GerenciadorDeCasas {
         casas.add(casa);
         System.out.println("Casa cadastrada com sucesso!");
     }
+
+    public Casa buscarCasa(double preco, boolean temJardim, ArrayList<Casa> casas) {
+        for (Casa c : casas) {
+            boolean temJardimCasa = c.getTemJardim();
+
+            if (preco == c.getPreco() && temJardim == temJardimCasa) {
+                return c;
+            }
+        }
+
+        return null;
+    }
 }
