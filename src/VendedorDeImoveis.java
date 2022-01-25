@@ -2,13 +2,11 @@ import java.util.ArrayList;
 
 public class VendedorDeImoveis extends Pessoa {
 
-    private ArrayList<Casa> casas = new ArrayList<>();
-
     public VendedorDeImoveis(String nome, String cpf, String dataNascimento) {
         super(nome, cpf, dataNascimento);
     }
 
-    public void venderCasa(Casa casa, Cliente cliente) {
+    public void venderCasa(Casa casa, Cliente cliente, ArrayList<Casa> casas) {
         double saldoCliente = cliente.getSaldo();
         double precoCasa = casa.getPreco();
 
@@ -23,7 +21,7 @@ public class VendedorDeImoveis extends Pessoa {
         }
     }
 
-    public Casa buscarCasa(double preco, boolean temJardim) {
+    public Casa buscarCasa(double preco, boolean temJardim, ArrayList<Casa> casas) {
         for (Casa c : casas) {
             boolean temJardimCasa = c.getTemJardim();
 
@@ -33,19 +31,6 @@ public class VendedorDeImoveis extends Pessoa {
         }
 
         return null;
-    }
-
-    public void cadastrarCasa(int janelas, int portas, int quartos, double preco, boolean temJardim) {
-        Casa casa = new Casa(janelas, portas, quartos, preco, temJardim);
-
-        casas.add(casa);
-        System.out.println("Casa cadastrada com sucesso!");
-    }
-
-    public void listarCasas() {
-        for (Casa c : casas) {
-            System.out.println(c.toString());
-        }
     }
 
     @Override
