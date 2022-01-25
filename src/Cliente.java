@@ -25,6 +25,14 @@ public class Cliente extends Pessoa {
         }
     }
 
+    public double diminuirSaldoAposComprarCasa(Casa c) {
+        double saldo = getSaldo();
+        double preco = c.getPreco();
+
+        saldo -= preco;
+        return saldo;
+    }
+
     @Override
     public String toString() {
         return "\n--------------------\n" + "Informações do cliente:" + "\n" + "Nome: " + getNome() + "\n" + "cpf: " + getCpf() + "\n" + "Data de nascimento: " + getDataNascimento() + "\n" + "Saldo: " + getSaldo() + "\n--------------------\n";
