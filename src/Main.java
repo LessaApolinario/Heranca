@@ -139,7 +139,7 @@ public class Main {
         String temJardim = in.nextLine();
 
         boolean resposta = temJardim.equals("SIM");
-        Casa casaProcurada = vendedorProcurado.buscarCasa(preco, resposta, gerenciadorDeCasas.getCasas());
+        Casa casaProcurada = gerenciadorDeCasas.buscarCasa(preco, resposta, gerenciadorDeCasas.getCasas());
 
         System.out.println("Qual é o cpf do cliente procurado? ");
         String cpfCliente = in.nextLine();
