@@ -128,10 +128,6 @@ public class Main {
     public static void abrirDialogoVenderCasa() {
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Qual é o cpf do vendedor procurado? ");
-        String cpfVendedor = in.nextLine();
-        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
-
         System.out.println("Qual é o preço da casa? ");
         double preco = in.nextDouble();
 
@@ -149,6 +145,10 @@ public class Main {
          * O gerenciador de casas informa quais as casas disponíveis,
          * já o vendedor de imóveis apenas as vende!
         */
+        System.out.println("Qual é o cpf do vendedor procurado? ");
+        String cpfVendedor = in.nextLine();
+
+        VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
         vendedorProcurado.venderCasa(casaProcurada, clienteProcurado, gerenciadorDeCasas.getCasas());
     }
 
