@@ -17,8 +17,10 @@ public class VendedorDeImoveis extends Pessoa {
             casas.remove(casa);
 
             // Esse método é de cliente porque ele, após a compra, subtrai uma quantia do seu saldo!
-            cliente.diminuirSaldo(precoCasa);
-            System.out.println("Saldo atual: " + saldoCliente);
+            double novoSaldo = cliente.diminuirSaldo(saldoCliente, precoCasa);
+            cliente.setSaldo(novoSaldo);
+
+            System.out.println("Saldo atual: " + cliente.getSaldo());
         }
     }
 
