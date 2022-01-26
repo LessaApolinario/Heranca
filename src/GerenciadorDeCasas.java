@@ -30,4 +30,23 @@ public class GerenciadorDeCasas {
 
         return null;
     }
+
+    public String venderCasa(Casa casa, Cliente cliente, double precoCasa, boolean  temJardim, VendedorDeImoveis vendedorDeImoveis) {
+        double saldoCliente = cliente.getSaldo();
+
+        if (saldoCliente >= precoCasa) {
+            System.out.println("A casa " + casa.toString() + " foi vendida com sucesso");
+            System.out.println("Vendedor: " + vendedorDeImoveis.getNome());
+            System.out.println("Comprador: " + cliente.getNome());
+
+            // Esse método é de cliente porque ele, após a compra, subtrai uma quantia do seu saldo!
+            double novoSaldo = cliente.diminuirSaldo(saldoCliente, precoCasa);
+            cliente.setSaldo(novoSaldo);
+
+            casas.remove(casa);
+            return "Saldo atual: " + cliente.getSaldo();
+        }
+
+        return "Saldo insuficiente!";
+    }
 }
