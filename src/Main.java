@@ -60,6 +60,7 @@ public class Main {
 
         System.out.println("Qual é o preço da casa? ");
         double preco = in.nextDouble();
+        limparBuffer(in);
 
         System.out.println("A casa possui jardim? ");
         String reposta = in.nextLine();
@@ -130,15 +131,18 @@ public class Main {
 
         System.out.println("Qual é o preço da casa? ");
         double preco = in.nextDouble();
+        limparBuffer(in);
 
         System.out.println("A casa tem desejada precisa ter jardim? ");
         String temJardim = in.nextLine();
+        limparBuffer(in);
 
         boolean resposta = temJardim.equals("SIM");
         Casa casaProcurada = gerenciadorDeCasas.buscarCasa(preco, resposta, gerenciadorDeCasas.getCasas());
 
         System.out.println("Qual é o cpf do cliente procurado? ");
         String cpfCliente = in.nextLine();
+        limparBuffer(in);
 
         Cliente clienteProcurado = gerenciadorDePessoas.buscarCliente(cpfCliente);
         /**
@@ -149,7 +153,10 @@ public class Main {
         String cpfVendedor = in.nextLine();
 
         VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
-        vendedorProcurado.venderCasa(casaProcurada, clienteProcurado, gerenciadorDeCasas.getCasas());
+
+        if (casaProcurada != null) {
+            vendedorProcurado.venderCasa(casaProcurada, clienteProcurado, gerenciadorDeCasas.getCasas());
+        }
     }
 
     public static void listarCasas(ArrayList<Casa> casas) {
