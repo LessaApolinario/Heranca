@@ -51,12 +51,15 @@ public class Main {
 
         System.out.println("Quantas janelas a casa possui? ");
         int janelas = in.nextInt();
+        limparBuffer(in);
 
         System.out.println("Quantas portas a casa possui? ");
         int portas = in.nextInt();
+        limparBuffer(in);
 
         System.out.println("Quantos quartos a casa possui? ");
         int quartos = in.nextInt();
+        limparBuffer(in);
 
         System.out.println("Qual é o preço da casa? ");
         double preco = in.nextDouble();
@@ -100,6 +103,7 @@ public class Main {
 
         System.out.println("Qual é o saldo do cliente? ");
         double saldo = in.nextDouble();
+        limparBuffer(in);
 
         gerenciadorDePessoas.cadastrarCliente(nome, cpf, dataNascimento, saldo);
     }
@@ -133,16 +137,14 @@ public class Main {
         double preco = in.nextDouble();
         limparBuffer(in);
 
-        System.out.println("A casa tem desejada precisa ter jardim? ");
+        System.out.println("A casa desejada precisa ter jardim? ");
         String temJardim = in.nextLine();
-        limparBuffer(in);
 
-        boolean resposta = temJardim.equals("SIM");
+        boolean resposta = temJardim.equalsIgnoreCase("SIM");
         Casa casaProcurada = gerenciadorDeCasas.buscarCasa(preco, resposta, gerenciadorDeCasas.getCasas());
 
         System.out.println("Qual é o cpf do cliente procurado? ");
         String cpfCliente = in.nextLine();
-        limparBuffer(in);
 
         Cliente clienteProcurado = gerenciadorDePessoas.buscarCliente(cpfCliente);
         /**
@@ -154,9 +156,13 @@ public class Main {
 
         VendedorDeImoveis vendedorProcurado = gerenciadorDePessoas.buscarVendedorDeImoveis(cpfVendedor);
 
+        String efetuarVenda = "";
+
         if (casaProcurada != null) {
-            vendedorProcurado.venderCasa(casaProcurada, clienteProcurado, gerenciadorDeCasas.getCasas());
+            efetuarVenda = gerenciadorDeCasas.venderCasa(casaProcurada, clienteProcurado, preco, resposta, vendedorProcurado);
         }
+
+        System.out.println(efetuarVenda);
     }
 
     public static void listarCasas(ArrayList<Casa> casas) {
