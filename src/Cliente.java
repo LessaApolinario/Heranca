@@ -25,9 +25,7 @@ public class Cliente extends Pessoa {
         }
     }
 
-    public double diminuirSaldo(double preco) {
-        double saldo = getSaldo();
-
+    public double diminuirSaldo(double saldo, double preco) {
         saldo -= preco;
         return saldo;
     }
